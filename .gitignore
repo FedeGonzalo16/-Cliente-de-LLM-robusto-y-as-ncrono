@@ -1,0 +1,15 @@
+# Credenciales y configuración local
+.env
+.env.*
+!.env.example
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Archivos generados por Python
+__pycache__/
+*.py[cod]
+
+# Guía personal de estudio
+/docs/EXPLICACION_TECNICA.md
