@@ -138,7 +138,7 @@ Los esquemas de `schemas.py` establecen las siguientes reglas:
 | `temperature` | Número entre `0` y `2`, inclusive. | `0.7` |
 | `max_tokens` | Entero mayor que cero. | `512` |
 
-La configuración se construye en `main.py` antes de crear el manager. La temperatura se envía al adaptador de OpenAI; el adaptador de Anthropic utiliza los parámetros admitidos por su SDK.
+La configuración se construye en `main.py` antes de crear el manager. `ModelConfig` valida `temperature` para ambos proveedores, pero **solo OpenAI aplica ese valor**, tanto en la generación normal como en streaming. `AnthropicClient` omite el parámetro en ambos modos porque `messages.create()` no lo admite en la versión del SDK de Anthropic usada por el proyecto. Al cambiar a Anthropic, ajustar `temperature` no tiene efecto en la respuesta.
 
 ## Generación normal y streaming
 
